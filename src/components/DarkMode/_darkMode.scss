@@ -1,0 +1,30 @@
+// dark mode
+
+.dark-mode {
+  background: black;
+  color: white;
+}
+
+.darkMode__title {
+  font-size: 24px;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.darkMode__btn {
+  position: absolute;
+  left: 50%;
+  top: 150px;
+  transform: translateX(-50%);
+
+  border: 1px solid green;
+  padding: 8px 15px;
+  background: inherit;
+
+  transition: all 0.3s;
+  &:hover {
+    background: green;
+    color: white;
+  }
+}

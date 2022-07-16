@@ -1,0 +1,198 @@
+/* Input */
+
+.weather__form {
+  text-align: center;
+  padding-top: 80px;
+  .weather__input {
+    background-color: #fff;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-size: 1rem;
+    padding: 1rem;
+    min-width: 300px;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+/* Cards */
+
+.weather__forecast {
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.card {
+  position: relative;
+  max-width: 350px;
+  width: 100%;
+  height: auto;
+  background: #fffaf1 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 5px;
+  margin: 15px;
+  padding: 10px 15px;
+
+  /* card__header */
+
+  .card__header-btn {
+    position: absolute;
+    right: 7px;
+    top: 5px;
+    .card__headerBtn-close {
+      display: inline-flex;
+      align-items: center;
+      background-color: inherit;
+      color: hsla(0, 0%, 77%, 1);
+      border: none;
+      font-size: 15px;
+      cursor: pointer;
+
+      transition: 0.3s;
+      &:hover {
+        color: rgb(98, 97, 97);
+        transform: scale(1.2);
+      }
+    }
+  }
+  .card__header-title {
+    display: flex;
+    justify-content: space-between;
+    .card__header-name {
+      font-size: 16px;
+    }
+    .card__header-weather {
+      display: inline-flex;
+      align-items: center;
+      margin-right: 15px;
+      .card__header-img {
+        width: 30px;
+        height: 30px;
+      }
+      .card__header-subtitle {
+        color: #c5c5c5;
+        font-size: 13px;
+        font-weight: normal;
+      }
+    }
+  }
+  .card__header-date {
+    font-weight: normal;
+    font-size: 18px;
+  }
+
+  /* card__content */
+
+  .card__content {
+    position: relative;
+    margin-top: 25px;
+    .card__content-dates {
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      margin: 0 8px;
+      .card__content-date {
+        color: #c5c5c5;
+        font-size: 8px;
+        font-weight: normal;
+        text-align: center;
+        opacity: 1;
+        column-gap: 4px;
+      }
+    }
+    .card__content-cowerHot {
+      width: 320px;
+      height: 51px;
+      background: transparent linear-gradient(180deg, #ffa25b 0%, #fff4f4 100%);
+      opacity: 0.3;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .card__content-cowerCold {
+      width: 320px;
+      height: 51px;
+      background: transparent linear-gradient(180deg, #5b8cff 0%, #fff4f4 100%)
+        0% 0% no-repeat padding-box;
+      opacity: 0.3;
+      border-radius: 10px 10px 0 0;
+    }
+  }
+
+  /* card__footer */
+
+  .card__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    .card__footer-left {
+      display: inline-flex;
+      .card__footer-temp {
+        display: flex;
+        align-items: baseline;
+        font-size: 44px;
+        font-weight: normal;
+        span {
+          font-size: 15px;
+        }
+      }
+      .unit-span {
+        margin-left: 10px;
+        font-size: 22px;
+        color: #8d8d8d;
+        font-family: "Jost";
+        cursor: pointer;
+
+        transition: 0.3s;
+        &:hover {
+          color: black;
+          transform: scale(1.1);
+        }
+      }
+    }
+    .card__footer-feellikes {
+      color: #c5c5c5;
+      font-size: 13px;
+
+      position: absolute;
+      bottom: 8px;
+      .card__footer-feellike {
+        font-weight: 600;
+        margin-left: 5px;
+      }
+    }
+    .card__footer-right {
+      margin-top: 25px;
+      .card__footer-main {
+        font-size: 12px;
+        color: black;
+        margin-top: 5px;
+        font-family: "Jost";
+        margin-bottom: 0 !important;
+        letter-spacing: 0.4px;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+      .card__footer-resultHot {
+        color: #ffa25b;
+        font-size: 12px;
+        font-family: "Jost";
+        font-weight: 700;
+        margin-left: 3px;
+      }
+      .card__footer-resultCold {
+        color: blue;
+        font-size: 12px;
+        font-family: "Jost";
+        font-weight: 700;
+        margin-left: 3px;
+      }
+    }
+  }
+}
