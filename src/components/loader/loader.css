@@ -1,0 +1,11 @@
+/* Loader */
+
+.ant-spin-lg .ant-spin-dot {
+  font-size: 54px !important;
+  transform: rotate(0deg) scale(0.2);
+}
+.ant-spin-lg .ant-spin-dot i {
+  width: 20px !important;
+  height: 20px !important;
+  background-color: white;
+}
