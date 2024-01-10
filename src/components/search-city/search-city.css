@@ -5,6 +5,7 @@
   margin: 0 auto;
   padding: 30px 0 50px 0;
 }
+
 .weather__input {
   width: 100%;
   background-color: #fff;
@@ -14,9 +15,11 @@
   font-size: 17px;
   padding: 10px 30px;
 }
+
 .weather__input:focus {
   outline: none;
 }
+
 .weather__search {
   position: absolute;
   top: 44%;
@@ -27,12 +30,15 @@
   color: #c5c5c5;
   cursor: pointer;
 }
+
 .weather__search i {
   transition: color 0.2s ease-in-out;
 }
+
 .weather__search i:hover {
   color: black;
 }
+
 .weather__location {
   position: absolute;
   top: 44%;
@@ -43,15 +49,16 @@
   color: white;
   cursor: pointer;
 }
+
 .weather__location i {
   transition: all 0.2s ease-in-out;
 }
+
 .weather__location i:hover {
   color: black;
 }
 
 /* @media */
-
 @media screen and (max-width: 768px) {
   .weather__form {
     width: 450px;

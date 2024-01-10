@@ -1,8 +1,10 @@
-import React from "react";
 import "./weatherCard.css";
+
+import { formatToLocalTime, iconUrlFromCode } from "../../api/api";
+
 import HourlyForecast from "./HourlyForecast";
 import DailyForecast from "./DailyForecast";
-import { formatToLocalTime, iconUrlFromCode } from "../../api/api";
+
 import cardBackground from "../../assets/img_1.png";
 
 const CurrentWeatherCard = ({

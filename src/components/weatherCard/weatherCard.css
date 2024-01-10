@@ -25,6 +25,7 @@
   right: 10px;
   top: 15px;
 }
+
 .card__headerBtn-close {
   display: inline-flex;
   align-items: center;
@@ -37,31 +38,38 @@
 
   transition: 0.3s;
 }
+
 .card__headerBtn-close:hover {
   color: rgb(98, 97, 97);
   transform: scale(1.2);
 }
+
 .card__header-title {
   display: flex;
   justify-content: space-between;
 }
+
 .card__header-name {
   font-size: 16px;
 }
+
 .card__header-weather {
   display: inline-flex;
   align-items: center;
   margin-right: 15px;
 }
+
 .card__header-img {
   width: 30px;
   height: 30px;
 }
+
 .card__header-subtitle {
   color: #c5c5c5;
   font-size: 13px;
   font-weight: normal;
 }
+
 .card__header-date {
   font-weight: normal;
   font-size: 18px;
@@ -72,6 +80,7 @@
   position: relative;
   margin-top: 15px;
 }
+
 .card__content-canvas {
   width: 320px !important;
   height: 150px !important;
@@ -80,6 +89,7 @@
   border-radius: 10px 10px 0 0;
   padding: 5px 10px;
 }
+
 .card__content-date {
   color: #c5c5c5;
   font-size: 8px;
@@ -96,19 +106,23 @@
   align-items: center;
   margin-top: 27px;
 }
+
 .card__footer-left {
   display: inline-flex;
 }
+
 .card__footer-temp {
   font-size: 44px;
   font-weight: normal;
   margin-bottom: 0;
 }
+
 .card__footer-units {
   position: relative;
   margin-left: 20px;
   display: flex;
 }
+
 .card__footer-unit {
   font-size: 22px;
   color: #8d8d8d;
@@ -121,10 +135,12 @@
 
   transition: 0.3s;
 }
+
 .card__footer-unit:hover {
   color: black;
   transform: scale(1.1);
 }
+
 hr {
   height: 30px !important;
   border: none;
@@ -132,6 +148,7 @@ hr {
   margin: 0 8px !important;
   opacity: 0.8 !important;
 }
+
 .cards__error {
   font-size: 16px;
   font-weight: 600;
@@ -140,6 +157,7 @@ hr {
   color: var(--white-color);
   text-transform: uppercase;
 }
+
 .card__footer-feellikes {
   color: #c5c5c5;
   font-size: 13px;
@@ -147,10 +165,12 @@ hr {
   position: absolute;
   bottom: 15px;
 }
+
 .card__footer-feellike {
   font-weight: 600;
   margin-left: 5px;
 }
+
 .card__footer-main {
   font-size: 14px;
   color: black;
@@ -159,6 +179,7 @@ hr {
   letter-spacing: 0.8px;
   font-weight: 600;
 }
+
 .card__footer-main:first-child {
   margin-top: 0;
 }
@@ -170,6 +191,7 @@ hr {
   gap: 20px;
   text-align: center;
 }
+
 .forecast-title {
   text-transform: uppercase;
   color: #c5c5c5;
@@ -178,9 +200,11 @@ hr {
   margin-bottom: 0;
   margin: 25px 0;
 }
+
 .forecast__item .forecast__item-img {
   width: 50px;
 }
+
 .forecast__swiper {
   display: none;
 }

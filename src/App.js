@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
+
+import { fetchData } from "./api/api";
+
 import CurrentWeatherCard from "./components/weatherCard/CurrentWeatherCard";
 import SearchCity from "./components/search-city/SearchCity";
 import Loader from "./components/loader/Loader";
+
 import HotWrapper from "./assets/Hot.jpg";
 import ColdWrapper from "./assets/Cold.jpg";
-import { fetchData } from "./api/api";
 
 const App = () => {
   const [weather, setWeather] = useState(() => {

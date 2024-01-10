@@ -1,9 +1,9 @@
-import React from "react";
+import "swiper/css";
+
 import { iconUrlFromCode } from "../../api/api";
 
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 // import "swiper/css/navigation";
 // import "swiper/css/pagination";
 // import "swiper/css/scrollbar";
