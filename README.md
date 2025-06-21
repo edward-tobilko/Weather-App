@@ -1,5 +1,5 @@
 # Weather Forecast
-![Wrapper_Weather_App](https://github.com/edward-tobilko/Weather-App/assets/80784389/860549d9-04de-48c3-9280-eacde5bbfc53)
+<img width="1507" alt="Screenshot 2025-06-21 at 3 34 16 PM" src="https://github.com/user-attachments/assets/6942c874-e432-4c72-b8fa-05c0c91a4e31" />
 
 ## ✔️Installation
 - git clone https://edward-tobilko.github.io/Weather-App/
