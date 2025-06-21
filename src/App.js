@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { fetchData } from "./api/api";
 
@@ -9,68 +9,73 @@ import Loader from "./components/loader/Loader";
 import HotWrapper from "./assets/Hot.jpg";
 import ColdWrapper from "./assets/Cold.jpg";
 
+// helper func
+const getFromLocalStorage = (key, value) => {
+  try {
+    const item = localStorage.getItem(key);
+
+    return item ? JSON.parse(item) : value;
+  } catch (error) {
+    return value;
+  }
+};
+
 const App = () => {
-  const [weather, setWeather] = useState(() => {
-    const saveData = localStorage.getItem("weather");
-    if (saveData) {
-      return JSON.parse(saveData);
-    } else {
-      return null;
-    }
-  });
+  const [weather, setWeather] = useState(() =>
+    getFromLocalStorage("weather", null),
+  );
 
-  const [query, setQuery] = useState(() => {
-    const saveData = localStorage.getItem("QueryCity");
-    if (saveData) {
-      return JSON.parse(saveData);
-    } else {
-      return { q: "Paris" };
-    }
-  });
+  const [query, setQuery] = useState(() =>
+    getFromLocalStorage("QueryCity", { q: "Paris" }),
+  );
 
-  const [units, setUnits] = useState(() => {
-    const saveData = localStorage.getItem("units");
-    if (saveData) {
-      const result = JSON.parse(saveData);
-      return result;
-    } else {
-      return "metric";
-    }
-  });
+  const [units, setUnits] = useState(() =>
+    getFromLocalStorage("units", "metric"),
+  );
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const [background, setBackground] = useState(() => {
-    const saveData = localStorage.getItem("background");
-    if (saveData) {
-      return JSON.parse(saveData);
-    } else {
-      return HotWrapper;
-    }
-  });
+  const [background, setBackground] = useState(() =>
+    getFromLocalStorage("background", HotWrapper),
+  );
 
   useEffect(() => {
     const fetchWeather = async () => {
-      await fetchData({ ...query, units }).then((data) => {
-        setIsLoading(true);
-        setWeather(data);
-        setIsLoading(false);
+      setIsLoading(true);
 
-        // Dynamic background
-        const changeBackgroundThemes = units === "metric" ? 20 : 60;
-        if (data.temp <= changeBackgroundThemes) {
-          setBackground(ColdWrapper);
-        } else {
-          setBackground(HotWrapper);
-        }
-      });
+      const data = await fetchData({ ...query, units });
+
+      if (!data || typeof data.temp === "undefined") {
+        console.error("Невалідні дані погоди:", data);
+        setIsLoading(false);
+        return;
+      }
+
+      setWeather(data);
+
+      // Dynamic background
+      const changeBackgroundThemes = units === "metric" ? 20 : 60;
+
+      if (data.temp <= changeBackgroundThemes) {
+        setBackground(ColdWrapper);
+      } else {
+        setBackground(HotWrapper);
+      }
+
+      localStorage.setItem("QueryCity", JSON.stringify(query));
+      localStorage.setItem("weather", JSON.stringify(data));
+      localStorage.setItem("units", JSON.stringify(units));
+      localStorage.setItem(
+        "background",
+        JSON.stringify(
+          data.temp <= changeBackgroundThemes ? ColdWrapper : HotWrapper,
+        ),
+      );
+
+      setIsLoading(false);
     };
 
     fetchWeather();
-
-    // localStorage.setItem("weather", JSON.stringify(query));
-    // localStorage.setItem("units", JSON.stringify(units));
-    // localStorage.setItem("background", JSON.stringify(background));
   }, [query, units]);
 
   return (

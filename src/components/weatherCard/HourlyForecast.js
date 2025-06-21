@@ -12,12 +12,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 const HourlyForecast = ({ items, title, units }) => {
   const tempUnit = units === "metric" ? "°C" : "°F";
 
+  // console.log(items);
+  
+
   return (
     <>
       <h1 className="forecast-title"> {title} </h1>
       <div className="forecast__notSwiper">
         <div className="forecast">
-          {items.map((item, index) => (
+          {items?.map((item, index) => (
             <div className="forecast__item" key={index}>
               <p className="forecast__item-title"> {item.time} </p>
               <img
@@ -43,7 +46,7 @@ const HourlyForecast = ({ items, title, units }) => {
         // pagination={{ clickable: true }}
       >
         <div className="forecast">
-          {items.map((item, index) => (
+          {items?.map((item, index) => (
             <SwiperSlide key={index}>
               <div className="forecast__item">
                 <p className="forecast__item-title"> {item.time} </p>

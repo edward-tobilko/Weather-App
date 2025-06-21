@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import "./search-city.css";
 
@@ -11,34 +11,37 @@ const SearchCity = ({ setQuery }) => {
   };
 
   const handleSearchClick = () => {
-    if (locationInput !== "") setQuery({ q: locationInput });
-    setLocationInput("");
+    if (locationInput.trim()) {
+      setQuery({ q: locationInput.trim() });
+      setLocationInput("");
+    }
   };
 
-  // const handlePressed = (e) => {
-  //   if (e.keyCode === 13) {
-  //     setLocationInput(e.currentTarget.value);
-  //     e.currentTarget.blur();
-  //   }
-  // };
+  const handlePressed = (e) => {
+    if (e.key === "Enter" && locationInput.trim()) {
+      setQuery({ q: locationInput });
+      setLocationInput("");
+    }
+  };
 
-  const handleMyLocation = () => {
+  function handleMyLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
 
         setQuery({ lat, lon });
+        setLocationInput("");
       });
     }
-  };
+  }
 
   return (
     <>
       <div className="weather__form">
         <input
-          // onKeyPress={handlePressed}
-          // name="locationInput"
+          onKeyDown={handlePressed}
+          name="locationInput"
           type="text"
           className="weather__input"
           placeholder="Search city..."

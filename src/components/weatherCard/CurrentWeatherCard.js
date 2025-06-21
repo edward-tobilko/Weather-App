@@ -19,7 +19,7 @@ const CurrentWeatherCard = ({
     pressure,
     description,
     dt,
-    timezone,
+    timezoneOffset,
   },
   weather,
   setUnits,
@@ -48,7 +48,7 @@ const CurrentWeatherCard = ({
               {name}, {country}
             </h3>
             <div className="card__header-weather">
-              <span className="card__header-subtitle">{timezone}</span>
+              <span className="card__header-subtitle">{timezoneOffset}</span>
               <img
                 src={iconUrlFromCode(icon)}
                 alt="Icon"
@@ -58,20 +58,19 @@ const CurrentWeatherCard = ({
             </div>
           </div>
           <h2 className="card__header-date">
-            {formatToLocalTime(dt, timezone)}
-            Date
+            {formatToLocalTime(dt, timezoneOffset)}
           </h2>
         </div>
 
         <div className="card__content">
           <HourlyForecast
             title="Hourly Forecast"
-            items={weather.getHourly}
+            items={weather?.getHourly}
             units={units}
           />
           <DailyForecast
             title="Daily Forecast"
-            items={weather.getDaily}
+            items={weather?.getDaily}
             units={units}
           />
         </div>
